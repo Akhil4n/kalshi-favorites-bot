@@ -1,0 +1,2 @@
+Host to run form 5pm to 2am every day (AWS?)
+Send emails when buys or sells are executed

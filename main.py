@@ -41,7 +41,7 @@ def run_trading_cycle():
                 print("\nNo buy opportunities found")
         
         # Check for sell opportunities
-        # Don't need this section if odds flip and other teams Yes contract is purchased?
+        # Don't need this section if odds flip and other teams Yes contract is purchased
         # sell_tickers = bets.get_valid_sell_tickers(nba_markets, open_positions)
         # if sell_tickers:
         #     print(f"\nSell opportunities: {len(sell_tickers)}")

@@ -32,8 +32,7 @@ def place_bet(tickers, open_positions) -> list:
         order_ids.append((ticker, o_id))
     return order_ids
 
-sells = set()
-def place_sells(sell_tickers) -> list:
+def place_sells(sell_tickers, sells) -> list:
     order_ids = []
     path = "/trade-api/v2/portfolio/orders"
     url = "https://api.elections.kalshi.com" + path

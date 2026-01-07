@@ -41,18 +41,18 @@ def run_trading_cycle():
                 print("\nNo buy opportunities found")
         
         # Check for sell opportunities
-        # Don't need this section if odds flip and other teams Yes contract is purchased
-        # sell_tickers = bets.get_valid_sell_tickers(nba_markets, open_positions)
-        # if sell_tickers:
-        #     print(f"\nSell opportunities: {len(sell_tickers)}")
-        #     for ticker in sell_tickers:
-        #         # Find the current price for this ticker
-        #         price = next((g['yes_ask'] for g in nba_markets if g['ticker'] == ticker), None)
-        #         print(f"  - {ticker} (current price: {price})")
-        #     sells = trading.place_sells(sell_tickers)
-        #     print(f"Sells executed: {sells}")
-        # else:
-        #     print("\nNo sell opportunities found")
+        sell_tickers = bets.get_valid_sell_tickers(nba_markets, open_positions)
+        sold = set()
+        if sell_tickers:
+            print(f"\nSell opportunities: {len(sell_tickers)}")
+            for ticker in sell_tickers:
+                # Find the current price for this ticker
+                price = next((g['yes_ask'] for g in nba_markets if g['ticker'] == ticker), None)
+                print(f"  - {ticker} (current price: {price})")
+            sells = trading.place_sells(sell_tickers, sold)
+            print(f"Sells executed: {sells}")
+        else:
+            print("\nNo sell opportunities found")
             
     except Exception as e:
         print(f"Error in trading cycle: {e}")
